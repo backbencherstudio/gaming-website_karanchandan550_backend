@@ -197,3 +197,22 @@ model Product {
 
   @@map("products")
 }
+
+model Payment {
+  id              String    @id @default(cuid())
+  order_id        String    @unique
+  amount          Decimal
+  currency        String
+  status          String
+  customer_name   String
+  customer_email  String
+  customer_phone  String
+  customer_address String
+  description     String
+  notes           String?
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  deleted_at      DateTime?
+
+  @@map("payments")
+}

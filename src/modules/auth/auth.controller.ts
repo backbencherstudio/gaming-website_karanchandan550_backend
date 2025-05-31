@@ -24,6 +24,9 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import appConfig from '../../config/app.config';
 import { LogisticsRegisterDto } from './dto/logistics-register.dto';
 import { LoginDto } from './dto/login.dto';
+import { RolesGuard } from 'src/common/guard/role/roles.guard';
+import { Role } from 'src/common/guard/role/role.enum';
+import { Roles } from 'src/common/guard/role/roles.decorator';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -32,7 +35,8 @@ export class AuthController {
 
   @ApiOperation({ summary: 'Get user details' })
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.ADMIN)
   @Get('me')
   async me(@Req() req: Request) {
     try {

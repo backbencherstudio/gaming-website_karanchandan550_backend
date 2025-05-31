@@ -24,6 +24,7 @@ import { ConceptsModule } from './modules/home/concepts/concepts.module';
 import { TrafficRulesModule } from './modules/home/traffic-rules/traffic-rules.module';
 import { EnviromentModule } from './modules/home/enviroment/enviroment.module';
 import { UploadQuestionModule } from './modules/dashboard/upload-question/upload-question.module';
+import { UpiPaymentModule } from './modules/upi-payment/upi-payment.module';
 
 @Module({
   imports: [
@@ -74,6 +75,7 @@ import { UploadQuestionModule } from './modules/dashboard/upload-question/upload
     TrafficRulesModule,
     EnviromentModule,
     UploadQuestionModule,
+    UpiPaymentModule,
   ],
   controllers: [AppController],
   providers: [
