@@ -1,28 +1,17 @@
 import { IsString, IsNumber, IsOptional, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
 
-export enum ProductType {
-  FRUIT = 'fruit',
-  VEGETABLE = 'vegetable',
-  // Add more types as needed
-}
 
-export enum ProductCategory {
-  FRESH = 'fresh',
-  SEASONAL = 'seasonal',
-  IMPORTED = 'imported',
-  // Add more categories as needed
-}
 
 export class CreateDashboardDto {
   @IsString()
   name: string;
 
-  @IsEnum(ProductType, { message: 'Invalid product type' })
-  type: ProductType;
+  @IsString()
+  type: string;
 
-  @IsEnum(ProductCategory, { message: 'Invalid product category' })
-  category: ProductCategory;
+  @IsString()
+  category: string;
 
   @Type(() => Number)
   @IsNumber({}, { message: 'Regular price must be a number' })
