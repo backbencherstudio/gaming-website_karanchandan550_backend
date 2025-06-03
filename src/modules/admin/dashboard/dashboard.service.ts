@@ -15,7 +15,7 @@ export class DashboardService {
   async create(createDashboardDto: CreateDashboardDto & { image?: Express.Multer.File }) {
     try {
       const imageUrl = createDashboardDto.image 
-        ? `${appConfig().app.url}${appConfig().storageUrl.rootUrlPublic}${appConfig().storageUrl.product}${createDashboardDto.image.filename}`
+        ? `${appConfig().storageUrl.rootUrlPublic}${appConfig().storageUrl.product}${createDashboardDto.image.filename}`
         : null;
 
       const product = await this.prisma.product.create({
