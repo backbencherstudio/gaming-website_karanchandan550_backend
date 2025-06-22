@@ -51,6 +51,10 @@ export class DashboardService {
         }
       });
 
+      for (const product of products) {
+        product.imageUrl = `${appConfig().app.url}${product.imageUrl}`;
+      }
+
       return products;
     } catch (error) {
       throw new BadRequestException(

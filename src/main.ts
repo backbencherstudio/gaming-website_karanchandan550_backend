@@ -23,7 +23,8 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
   app.enableCors();
-  app.use(helmet());
+
+  app.use(helmet({}));
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     index: false,
     prefix: '/public',
